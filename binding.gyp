@@ -20,6 +20,10 @@
               ]
             , 'cflags!': [ '-fno-tree-vrp']
           }]
+        , ['OS == "android"', {
+              'cflags': [ '-mfloat-abi=hard'
+              ]
+          }]
         , ['target_arch == "arm"', {
               'cflags': [ '-mfloat-abi=hard'
               ]
