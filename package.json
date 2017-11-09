@@ -1,7 +1,7 @@
 {
-  "name": "leveldown",
+  "name": "@staltz/leveldown",
   "description": "A low-level Node.js LevelDB binding",
-  "version": "2.0.0",
+  "version": "2.0.0-rc.1",
   "contributors": [
     "Rod Vagg <r@va.gg> (https://github.com/rvagg)",
     "John Chesley <john@chesl.es> (https://github.com/chesles/)",
@@ -25,10 +25,7 @@
     "url": "https://github.com/level/leveldown.git"
   },
   "homepage": "https://github.com/level/leveldown",
-  "keywords": [
-    "leveldb",
-    "level"
-  ],
+  "keywords": ["leveldb", "level"],
   "main": "leveldown.js",
   "typings": "leveldown.d.ts",
   "dependencies": {
@@ -64,6 +61,9 @@
     "prebuild": "prebuild --all --strip --verbose"
   },
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "gypfile": true,
   "engines": {
     "node": ">=4"
