@@ -87,10 +87,8 @@
               , '-fPIE'
             ]
         }]
-      , ['target_arch == "arm"', {
-            'cflags': [
-        '-mfloat-abi=hard'
-      ]
+      , ['target_arch == "arm" or target_arch == "arm64"', {
+            'cflags': [ '-mfloat-abi=hard' ]
         }]
     ]
   , 'sources': [

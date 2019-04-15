@@ -141,7 +141,7 @@
           , 'ccflags': [
                 '-pthread'
             ]
-        }]      
+        }]
       , ['OS == "ios"', {
             'defines': [
                 'OS_IOS=1'
@@ -194,10 +194,8 @@
             ]
           , 'cflags_cc!': [ '-fno-exceptions' ]
         }]
-      , ['target_arch == "arm"', {
-            'cflags': [
-          '-mfloat-abi=hard'
-      ]
+      , ['target_arch == "arm" or target_arch == "arm64"', {
+            'cflags': [ '-mfloat-abi=hard' ]
         }]
     ]
   , 'sources': [
