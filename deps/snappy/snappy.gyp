@@ -3,6 +3,7 @@
         'conditions': [
             ['OS=="linux"',   {'os_include': 'linux'}]
           , ['OS=="android"', {'os_include': 'linux'}]
+          , ['OS=="ios"',     {'os_include': 'mac'}]
           , ['OS=="mac"',     {'os_include': 'mac'}]
           , ['OS=="solaris"', {'os_include': 'solaris'}]
           , ['OS=="win"',     {'os_include': 'win32'}]
@@ -77,10 +78,14 @@
       , ['OS == "android"', {
             'cflags': [
                 '-Wno-sign-compare'
-              , '-mfloat-abi=hard'
+              , '-fPIC'
               , '-Wno-unused-function'
             ]
-          , 'cflags!': [ '-fno-tree-vrp' ]
+          , 'cflags!': [
+                '-fno-tree-vrp'
+              , '-mfloat-abi=hard'
+              , '-fPIE'
+            ]
         }]
       , ['target_arch == "arm"', {
             'cflags': [

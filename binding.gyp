@@ -21,8 +21,16 @@
             , 'cflags!': [ '-fno-tree-vrp']
           }]
         , ['OS == "android"', {
-              'cflags': [ '-mfloat-abi=hard'
+              'cflags': [ '-fPIC' ]
+            , 'ldflags': [ '-fPIC' ]
+            , 'cflags!': [
+                  '-fno-tree-vrp'
+                , '-fno-exceptions'
+                , '-mfloat-abi=hard'
+                , '-fPIE'
               ]
+            , 'cflags_cc!': [ '-fno-exceptions' ]
+            , 'ldflags!': [ '-fPIE' ]
           }]
         , ['target_arch == "arm"', {
               'cflags': [ '-mfloat-abi=hard'

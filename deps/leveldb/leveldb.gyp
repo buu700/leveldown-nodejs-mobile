@@ -141,6 +141,20 @@
           , 'ccflags': [
                 '-pthread'
             ]
+        }]      
+      , ['OS == "ios"', {
+            'defines': [
+                'OS_IOS=1'
+            ]
+          , 'libraries': []
+          , 'ccflags': []
+          , 'xcode_settings': {
+                'WARNING_CFLAGS': [
+                    '-Wno-sign-compare'
+                  , '-Wno-unused-variable'
+                  , '-Wno-unused-function'
+                ]
+            }
         }]
       , ['OS == "mac"', {
             'defines': [
@@ -155,6 +169,30 @@
                   , '-Wno-unused-function'
                 ]
             }
+        }]
+      , ['OS == "android"', {
+           'defines': [
+                'OS_ANDROID=1'
+              , '_REENTRANT=1'
+            ]
+          , 'libraries': [
+                '-lpthread'
+            ]
+          , 'ccflags': [
+                '-pthread',
+                '-fno-builtin-memcmp',
+                '-fexceptions'
+            ]
+          , 'cflags': [
+                '-fPIC'
+            ]
+          , 'cflags!': [
+                '-fno-exceptions'
+              , '-fPIE'
+              , '-mfloat-abi=hard'
+              , '-Wno-unused-but-set-variable'
+            ]
+          , 'cflags_cc!': [ '-fno-exceptions' ]
         }]
       , ['target_arch == "arm"', {
             'cflags': [
